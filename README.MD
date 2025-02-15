@@ -21,7 +21,6 @@ Wind Mail is a modern, feature-rich email campaign management system. It offers 
 
 
 ## Features
-![GitHub top language](https://img.shields.io/github/languages/top/leafspark/AutoGGUF.svg)
 ### 📧 Email Campaign Management
 - Create and send email campaigns to multiple recipients
 - Support for both plain text and HTML emails
