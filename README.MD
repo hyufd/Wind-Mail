@@ -12,8 +12,10 @@
   <a href="https://w404.net/">
     <img src="https://img.shields.io/badge/by-W404.NET-purple.svg" alt="W404.NET">
   </a>
-  
+<img src="https://api.visitorbadge.io/api/VisitorHit?user=MinhxThanh&repo=Wind-Mail&countColor=%237B1E7A" style="max-height: 20px " />
 </p>
+      
+
 
 </div>
 
