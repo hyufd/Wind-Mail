@@ -1,8 +1,17 @@
-# Wind Mail
+
+
+<div align="center">
+  # Wind Mail
+</div>
+<div align="center">
+  # Wind Mail
+</div>
+<div align="center">
+   ![By W404](https://img.shields.io/badge/W404)](https://w404.net/)
+  [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+</div>
 
 A modern, feature-rich email campaign management system built with Next.js 13+. Wind Mail provides a beautiful, intuitive interface for managing email campaigns, recipient lists, and tracking email delivery status in real-time.
-
-![Wind Mail Dashboard](https://images.unsplash.com/photo-1557568192-2fafc8b5bdc9?auto=format&fit=crop&q=80&w=2940)
 
 ## Features
 
@@ -55,7 +64,7 @@ A modern, feature-rich email campaign management system built with Next.js 13+. 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/wind-mail.git
+git clone https://github.com/MinhxThanh/Wind-Mail.git
 cd wind-mail
 ```
 
