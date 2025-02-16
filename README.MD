@@ -1,18 +1,28 @@
 <div align="center">
-<img src="/images/image_background.png" alt="Wind Mail Background" style="max-height: 400px; width: auto;"/>
+<img src="https://raw.githubusercontent.com/MinhxThanh/Wind-Mail/refs/heads/main/public/images/image_background.png" alt="Wind Mail Background" style="max-height: 400px; width: auto;"/>
 </div>
-<div align="center">
-  # Wind Mail
-</div>
-<div align="center">
-   ![By W404](https://img.shields.io/badge/W404)](https://w404.net/)
+  <div align="center">
+
+# Wind Mail
+
+  
+<p align="center">
+  
   [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+  <a href="https://w404.net/">
+    <img src="https://img.shields.io/badge/by-W404.NET-purple.svg" alt="W404.NET">
+  </a>
+<img src="https://api.visitorbadge.io/api/VisitorHit?user=MinhxThanh&repo=Wind-Mail&countColor=%237B1E7A" style="max-height: 20px " />
+</p>
+      
+
+
 </div>
 
-A modern, feature-rich email campaign management system built with Next.js 13+. Wind Mail provides a beautiful, intuitive interface for managing email campaigns, recipient lists, and tracking email delivery status in real-time.
+Wind Mail is a modern, feature-rich email campaign management system. It offers an intuitive, responsive interface for managing email campaigns, recipient lists, and tracking real-time email delivery performance. Key features include support for plain text and HTML emails, campaign scheduling with batch sending, detailed analytics, and secure integration with major email providers. Additional capabilities include recipient management, CSV import/export, duplicate detection, and robust backup and restore functionality. Designed for ease of use, Wind Mail supports dark/light themes, progress indicators, and seamless navigation, making it a top choice for email marketing professionals.
+
 
 ## Features
-
 ### 📧 Email Campaign Management
 - Create and send email campaigns to multiple recipients
 - Support for both plain text and HTML emails
