@@ -76,7 +76,7 @@ Wind Mail is a modern, feature-rich email campaign management system. It offers 
 #### Local Development
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/wind-mail.git
+git clone https://github.com/MinhxThanh/Wind-Mail.git
 cd wind-mail
 ```
 
@@ -135,6 +135,12 @@ docker-compose down
 ```csv
 Email,Name
 user@example.com,John Doe
+```
+or
+
+```csv
+Email
+user@example.com
 ```
 
 ## Usage
