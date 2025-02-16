@@ -23,6 +23,7 @@ Wind Mail is a modern, feature-rich email campaign management system. It offers 
 
 
 ## Features
+
 ### 📧 Email Campaign Management
 - Create and send email campaigns to multiple recipients
 - Support for both plain text and HTML emails
@@ -30,6 +31,7 @@ Wind Mail is a modern, feature-rich email campaign management system. It offers 
 - Batch sending with progress tracking
 - Save campaigns as drafts
 - Real-time sending status updates
+- File attachments support (up to 10MB per file)
 
 ### 👥 Recipient Management
 - Import/export recipient lists via CSV
@@ -65,14 +67,16 @@ Wind Mail is a modern, feature-rich email campaign management system. It offers 
 ## Getting Started
 
 ### Prerequisites
-- Node.js 16.8 or later
+- Node.js 20.x or later
 - npm or yarn package manager
+- Docker (optional)
 
 ### Installation
 
+#### Local Development
 1. Clone the repository:
 ```bash
-git clone https://github.com/MinhxThanh/Wind-Mail.git
+git clone https://github.com/yourusername/wind-mail.git
 cd wind-mail
 ```
 
@@ -84,6 +88,26 @@ npm install
 3. Start the development server:
 ```bash
 npm run dev
+```
+
+#### Using Docker
+
+1. Development Environment:
+```bash
+# Start the development environment
+docker-compose up dev
+
+# Stop the development environment
+docker-compose down
+```
+
+2. Production Environment:
+```bash
+# Start the production environment
+docker-compose up prod -d
+
+# Stop the production environment
+docker-compose down
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -121,6 +145,7 @@ user@example.com,John Doe
    - Campaign Name
    - Email Subject
    - Content (HTML or plain text)
+   - Attachments (optional)
 2. Choose between immediate sending or scheduling
 3. Click "Send Now" or "Schedule Campaign"
 
@@ -162,6 +187,7 @@ user@example.com,John Doe
 - shadcn/ui
 - Node.js
 - Nodemailer
+- Docker
 
 ### Project Structure
 ```
@@ -176,6 +202,21 @@ wind-mail/
 ├── lib/              # Utility functions
 └── public/           # Static assets
 ```
+
+### Docker Configuration
+
+The project includes Docker support with separate configurations for development and production:
+
+- `Dockerfile.dev`: Development environment with hot-reloading
+- `Dockerfile`: Production-ready build
+- `docker-compose.yml`: Orchestration for both environments
+
+Key features:
+- Volume mounting for development
+- Optimized production builds
+- Environment variable support
+- Automatic container restart
+- Port mapping (3000)
 
 ## Contributing
 
