@@ -67,6 +67,19 @@ function validateEmailOptions(options: any): ValidationResult {
     return { isValid: false, error: 'Invalid recipient email address format' };
   }
 
+  // Validate attachments if present
+  if (options.attachments) {
+    if (!Array.isArray(options.attachments)) {
+      return { isValid: false, error: 'Attachments must be an array' };
+    }
+
+    for (const attachment of options.attachments) {
+      if (!attachment.filename || !attachment.content || !attachment.encoding) {
+        return { isValid: false, error: 'Invalid attachment format' };
+      }
+    }
+  }
+
   return { isValid: true };
 }
 
@@ -208,6 +221,7 @@ export async function POST(request: Request) {
             subject: options.subject,
             text: options.text,
             html: options.html,
+            attachments: options.attachments,
             headers: {
               'X-Priority': '3',
               'X-MSMail-Priority': 'Normal',

@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { CalendarIcon, Loader2, CheckCircle2, XCircle, Trash2, Save } from "lucide-react";
+import { CalendarIcon, Loader2, CheckCircle2, XCircle, Trash2, Save, Paperclip, X } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -49,7 +49,14 @@ interface SendingStatus {
   totalBatches: number;
 }
 
+interface Attachment {
+  filename: string;
+  content: string;
+  encoding: string;
+}
+
 const BATCH_SIZE = 50;
+const MAX_ATTACHMENT_SIZE = 10 * 1024 * 1024; // 10MB
 
 export default function ComposePage() {
   const { toast } = useToast();
@@ -62,6 +69,7 @@ export default function ComposePage() {
   const [hour, setHour] = useState<string>();
   const [minute, setMinute] = useState<string>();
   const [period, setPeriod] = useState<"AM" | "PM">("AM");
+  const [attachments, setAttachments] = useState<Attachment[]>([]);
   const [sendingStatus, setSendingStatus] = useState<SendingStatus>({
     inProgress: false,
     totalRecipients: 0,
@@ -111,6 +119,55 @@ export default function ComposePage() {
       title: "Logs Cleared",
       description: "All email logs have been deleted.",
     });
+  };
+
+  const handleFileAttachment = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files) return;
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      
+      if (file.size > MAX_ATTACHMENT_SIZE) {
+        toast({
+          title: "File Too Large",
+          description: `${file.name} exceeds the 10MB limit.`,
+          variant: "destructive",
+        });
+        continue;
+      }
+
+      try {
+        const base64Content = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result as string);
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+
+        // Extract the base64 content without the data URL prefix
+        const base64Data = base64Content.split(',')[1];
+
+        setAttachments(prev => [...prev, {
+          filename: file.name,
+          content: base64Data,
+          encoding: 'base64'
+        }]);
+      } catch (error) {
+        toast({
+          title: "Attachment Error",
+          description: `Failed to process ${file.name}`,
+          variant: "destructive",
+        });
+      }
+    }
+
+    // Reset the input
+    e.target.value = '';
+  };
+
+  const removeAttachment = (filename: string) => {
+    setAttachments(prev => prev.filter(att => att.filename !== filename));
   };
 
   const hours = Array.from({ length: 12 }, (_, i) => (i + 1).toString().padStart(2, '0'));
@@ -196,6 +253,7 @@ export default function ComposePage() {
                 text: !isHTML ? formData.content : undefined,
                 html: isHTML ? formData.content : undefined,
                 campaignName: formData.campaignName,
+                attachments: attachments.length > 0 ? attachments : undefined,
               });
 
               saveEmailLog({
@@ -300,6 +358,7 @@ export default function ComposePage() {
         content: '',
       });
       setIsHTML(false);
+      setAttachments([]);
     }
   };
 
@@ -359,6 +418,49 @@ export default function ComposePage() {
           </div>
 
           <div className="space-y-4">
+            <div className="flex flex-col space-y-2">
+              <Label>Attachments (Optional)</Label>
+              <div className="flex items-center gap-4">
+                <div className="relative">
+                  <input
+                    type="file"
+                    onChange={handleFileAttachment}
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    multiple
+                  />
+                  <Button type="button" variant="outline" className="flex items-center gap-2">
+                    <Paperclip className="h-4 w-4" />
+                    Add Attachments
+                  </Button>
+                </div>
+                {attachments.length > 0 && (
+                  <p className="text-sm text-muted-foreground">
+                    {attachments.length} file{attachments.length !== 1 ? 's' : ''} attached
+                  </p>
+                )}
+              </div>
+              {attachments.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {attachments.map((file) => (
+                    <div
+                      key={file.filename}
+                      className="flex items-center gap-2 bg-secondary px-3 py-1 rounded-full"
+                    >
+                      <Paperclip className="h-3 w-3" />
+                      <span className="text-sm">{file.filename}</span>
+                      <button
+                        type="button"
+                        onClick={() => removeAttachment(file.filename)}
+                        className="text-muted-foreground hover:text-foreground"
+                      >
+                        <X className="h-3 w-3" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <div className="flex items-center space-x-2">
               <Switch
                 id="schedule-mode"
@@ -469,8 +571,7 @@ export default function ComposePage() {
                 'Schedule Campaign'
               ) : (
                 'Send Now'
-              )}
-            </Button>
+              )} </Button>
             <Button 
               type="button" 
               variant="outline"

@@ -6,6 +6,11 @@ export interface EmailOptions {
   text?: string;
   html?: string;
   campaignName?: string;
+  attachments?: Array<{
+    filename: string;
+    content: string;
+    encoding: string;
+  }>;
 }
 
 export async function sendEmail(config: SMTPConfig, options: EmailOptions): Promise<boolean> {
